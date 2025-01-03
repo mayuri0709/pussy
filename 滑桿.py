@@ -7,7 +7,13 @@ import streamlit as st
 
 # Streamlit 標題
 st.header("從阻尼震盪到數據預測：銅金屬渦電流與磁阻尼機制的動力學研究")  # 顯示整個頁面的主標題，說明研究主題
-
+if st.button("執行 anima.py 動畫"):
+    try:
+        # 替換成 anima.py 的路徑（如果不在同一目錄，提供完整路徑）
+        subprocess.run(["python", "anima.py"], check=True)
+        st.success("動畫執行完成！")
+    except Exception as e:
+        st.error(f"無法執行 anima.py，錯誤信息: {e}")
 
 # Streamlit 敘述
 st.subheader("阻尼震盪軌跡預測")  # 顯示子標題，介紹第一部分的內容
