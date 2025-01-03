@@ -17,7 +17,7 @@ amplitude = st.slider('原始震幅 (m)', min_value=0.01, max_value=0.1, value=0
 height = st.slider('高度 (m)', min_value=0.01, max_value=0.08, value=0.01, step=0.01)  # 透過滑桿選擇物體與銅板的初始距離
 spring_constant = st.slider('彈力常數 (N/m)', min_value=10, max_value=20, value=10, step=1)  # 設定彈簧的彈力常數
 thickness= st.slider('銅板厚度 (mm)', min_value=2, max_value=10, value=2, step=1)  # 設定銅板厚度
-def anima() :
+def anima(mass, amplitude, height, spring_constant, thickness) :
 
 # 驗證輸入值是否在範圍內
     if mass > 0.25 or mass < 0.1:
@@ -106,7 +106,7 @@ def anima() :
        plt.show()  # 顯示圖表
 if st.button("執行 anima.py 動畫"):
     try:
-        anima()
+        anima(mass, amplitude, height, spring_constant, thickness)
         st.success("動畫執行完成！")
     except Exception as e:
         st.error(f"執行 anima.py 時發生錯誤！")
