@@ -104,7 +104,7 @@ def anima(mass, amplitude, height, spring_constant, thickness) :
            time += dt  # 更新時間
     
     
-       plt.show()  # 顯示圖表
+       st.pyplot(fig3)  # 顯示圖表
 if st.button("執行 anima.py 動畫"):
     try:
         anima(mass, amplitude, height, spring_constant, thickness)
