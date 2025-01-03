@@ -7,6 +7,17 @@ import subprocess
 
 # Streamlit 標題
 st.header("從阻尼震盪到數據預測：銅金屬渦電流與磁阻尼機制的動力學研究")  # 顯示整個頁面的主標題，說明研究主題
+
+
+# Streamlit 敘述
+st.subheader("阻尼震盪軌跡預測")  # 顯示子標題，介紹第一部分的內容
+st.text("不考慮震幅過大導致物體與銅板產生碰撞的情況。")  # 提供額外說明，避免誤解模擬範圍
+# 使用者輸入
+mass = st.slider('質量 (kg)', min_value=0.1, max_value=0.25, value=0.1, step=0.01)  # 透過滑桿讓使用者選擇物體的質量
+amplitude = st.slider('原始震幅 (m)', min_value=0.01, max_value=0.1, value=0.01, step=0.01)  # 透過滑桿設定初始震幅
+height = st.slider('高度 (m)', min_value=0.01, max_value=0.08, value=0.01, step=0.01)  # 透過滑桿選擇物體與銅板的初始距離
+spring_constant = st.slider('彈力常數 (N/m)', min_value=10, max_value=20, value=10, step=1)  # 設定彈簧的彈力常數
+thickness= st.slider('銅板厚度 (mm)', min_value=2, max_value=10, value=2, step=1)  # 設定銅板厚度
 if st.button("執行 anima.py 動畫"):
     try:
         result = subprocess.run(
@@ -20,17 +31,6 @@ if st.button("執行 anima.py 動畫"):
         st.error(f"執行 anima.py 時發生錯誤！")
         st.text("錯誤訊息：")
         st.code(e.stderr)
-
-# Streamlit 敘述
-st.subheader("阻尼震盪軌跡預測")  # 顯示子標題，介紹第一部分的內容
-st.text("不考慮震幅過大導致物體與銅板產生碰撞的情況。")  # 提供額外說明，避免誤解模擬範圍
-# 使用者輸入
-mass = st.slider('質量 (kg)', min_value=0.1, max_value=0.25, value=0.1, step=0.01)  # 透過滑桿讓使用者選擇物體的質量
-amplitude = st.slider('原始震幅 (m)', min_value=0.01, max_value=0.1, value=0.01, step=0.01)  # 透過滑桿設定初始震幅
-height = st.slider('高度 (m)', min_value=0.01, max_value=0.08, value=0.01, step=0.01)  # 透過滑桿選擇物體與銅板的初始距離
-spring_constant = st.slider('彈力常數 (N/m)', min_value=10, max_value=20, value=10, step=1)  # 設定彈簧的彈力常數
-thickness= st.slider('銅板厚度 (mm)', min_value=2, max_value=10, value=2, step=1)  # 設定銅板厚度
-
 
 # 定義周期與阻尼系數
 T = (2 * math.pi * (mass / spring_constant) ** 0.5)  # 根據質量和彈簧常數計算系統的振盪周期
