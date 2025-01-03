@@ -21,7 +21,7 @@ thickness= st.slider('銅板厚度 (mm)', min_value=2, max_value=10, value=2, st
 if st.button("執行 anima.py 動畫"):
     try:
         result = subprocess.run(
-            ["python", "anima.py", str(mass), str(amplitude), str(thickness), str(height), str(spring_constant)],
+            ["python3", "anima.py", str(mass), str(amplitude), str(thickness), str(height), str(spring_constant)],
             capture_output=True, text=True, check=True
         )
         st.success("動畫執行完成！")
