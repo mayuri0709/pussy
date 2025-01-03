@@ -18,11 +18,7 @@ height = st.slider('高度 (m)', min_value=0.01, max_value=0.08, value=0.01, ste
 spring_constant = st.slider('彈力常數 (N/m)', min_value=10, max_value=20, value=10, step=1)  # 設定彈簧的彈力常數
 thickness= st.slider('銅板厚度 (mm)', min_value=2, max_value=10, value=2, step=1)  # 設定銅板厚度
 def anima() :
-    mass = st.slider('質量 (kg)', min_value=0.1, max_value=0.25, value=0.1, step=0.01)  # 透過滑桿讓使用者選擇物體的質量
-    amplitude = st.slider('原始震幅 (m)', min_value=0.01, max_value=0.1, value=0.01, step=0.01)  # 透過滑桿設定初始震幅
-    height = st.slider('高度 (m)', min_value=0.01, max_value=0.08, value=0.01, step=0.01)  # 透過滑桿選擇物體與銅板的初始距離
-    spring_constant = st.slider('彈力常數 (N/m)', min_value=10, max_value=20, value=10, step=1)  # 設定彈簧的彈力常數
-    thickness= st.slider('銅板厚度 (mm)', min_value=2, max_value=10, value=2, step=1)  # 設定銅板厚度
+
 # 驗證輸入值是否在範圍內
     if mass > 0.25 or mass < 0.1:
        st.error('輸入數值不在預設範圍')
