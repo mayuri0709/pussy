@@ -24,7 +24,6 @@ if st.button("執行 anima.py 動畫"):
     except Exception as e:
         st.error(f"執行 anima.py 時發生錯誤！")
         st.text("錯誤訊息：")
-        st.code(e.stderr)
 
 # 定義周期與阻尼系數
 T = (2 * math.pi * (mass / spring_constant) ** 0.5)  # 根據質量和彈簧常數計算系統的振盪周期
