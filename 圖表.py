@@ -18,7 +18,10 @@ sheet_url = st.text_input(
 )
 if uploaded_file or sheet_url is not None:
     # 讀取資料
-    data = pd.read_csv(uploaded_file or sheet_url)
+    try:
+        data = pd.read_csv(uploaded_file)
+    except:
+        data = pd.read_csv(sheet_url)
     st.write("### 上傳的資料")  # 顯示上傳的資料標題
     st.dataframe(data)  # 顯示資料表
 
