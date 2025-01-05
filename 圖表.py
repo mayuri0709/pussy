@@ -10,7 +10,7 @@ st.title("阻尼振盪分析")  # 應用程式標題
 
 # 上傳檔案
 uploaded_file = st.file_uploader("上傳您的 CSV 檔案", type=["csv"])  # 提示用戶上傳檔案
-st.subtitle("或者讀取線上csv數據")
+st.text("或者讀取線上csv數據")
 
 # 輸入 Google Sheets 的 CSV 下載鏈接
 sheet_url = st.text_input(
