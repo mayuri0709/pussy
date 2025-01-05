@@ -16,7 +16,7 @@ st.text("或者讀取線上csv數據")
 sheet_url = st.text_input(
     "請輸入 CSV 下載鏈接:", 
 )
-if (uploaded_file or sheet_url) is not None:
+if uploaded_file or sheet_url:
     # 讀取資料
     try:
         data = pd.read_csv(uploaded_file)
