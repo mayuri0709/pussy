@@ -7,7 +7,9 @@ import streamlit as st
 
 # Streamlit 應用程式
 st.title("阻尼振盪分析")  # 應用程式標題
+import streamlit.components.v1 as components
 
+components.iframe("https://www.glowscript.org/#/user/musicgamer0709/folder/physics/program/real", height=500)
 # 上傳檔案
 uploaded_file = st.file_uploader("上傳您的 CSV 檔案", type=["csv"])  # 提示用戶上傳檔案
 st.text("或者讀取線上csv數據")
