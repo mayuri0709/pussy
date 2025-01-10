@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from scipy.signal import find_peaks
 from sklearn.linear_model import LinearRegression
 import streamlit as st
-
+import sys
 # Streamlit 應用程式
 st.title("阻尼振盪分析")  # 應用程式標題
 
@@ -31,11 +31,14 @@ if uploaded_file or sheet_url:
 
     # 峰值檢測
     peak_times,peak_amplitudes = find_peaks(amplitude)
-   # peak_times = time[peaks].values.reshape(-1, 1)  # 峰值時間
+    #peak_times = time[peaks].values.reshape(-1, 1)  # 峰值時間
     #peak_amplitudes = amplitude[peaks]  # 峰值振幅
 
     # 計算峰值振幅的自然對數
-    log_peak_amplitudes = np.log(peak_amplitudes)
+    try:
+        log_peak_amplitudes = np.log(peak_amplitudes)
+    except Exception as e:
+        print(e)
 
     # 建立峰值資料的 DataFrame
     peak_data = pd.DataFrame({
