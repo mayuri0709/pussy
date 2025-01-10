@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 from scipy.signal import find_peaks
 from sklearn.linear_model import LinearRegression
 import streamlit as st
-import sys
 # Streamlit 應用程式
 st.title("阻尼振盪分析")  # 應用程式標題
 
