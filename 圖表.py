@@ -38,7 +38,7 @@ if uploaded_file or sheet_url:
     try:
         log_peak_amplitudes = np.log(peak_amplitudes)
     except Exception as e:
-        print(e)
+        st.error(f"Error: {e}")
 
     # 建立峰值資料的 DataFrame
     peak_data = pd.DataFrame({
