@@ -30,11 +30,9 @@ if uploaded_file or sheet_url:
     amplitude = data['y 10']  # 振幅欄位
 
     # 峰值檢測
-    peak_times,peak_amplitudes = find_peaks(amplitude)
-    #peak_times = time[peaks].values.reshape(-1, 1)  # 峰值時間
-    #peak_amplitudes = amplitude[peaks]  # 峰值振幅
-    st.write("Peak Times (Indices):", peak_times)
-    st.write("Peak Amplitudes:", peak_amplitudes)
+    peaks,_ = find_peaks(amplitude)#返回字典
+    peak_times = time[peaks].values.reshape(-1, 1)  # 峰值時間
+    peak_amplitudes = amplitude[peaks]  # 峰值振幅
 
     # 計算峰值振幅的自然對數
     try:
